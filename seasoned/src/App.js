@@ -19,6 +19,7 @@ class App extends React.Component{
         super();
         this.state = {
             latitude: null,
+            errorMessage: '',
         }
     }
 
@@ -29,14 +30,23 @@ class App extends React.Component{
                     latitude: success.coords.latitude
                 })
             },
-             (error) => console.log(error)
+            (error) => {
+                this.setState({errorMessage: error.message})
+            }
         );
     }
 
     render(){
-        return(
-            <div>Latitude: {this.state.latitude}</div>
-        )
+        if(!this.state.errorMessage && this.state.latitude){
+            return <div>Latitude: {this.state.latitude}</div>
+        }
+        else if(this.state.errorMessage && !this.state.latitude){
+            return <div>Error: {this.state.errorMessage}</div>
+        }
+        else{
+            return <div>Loading......</div>
+        }
+
     }
 }
 
