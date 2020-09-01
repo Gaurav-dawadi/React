@@ -1,9 +1,13 @@
 import React from 'react'
 
+import {Card} from 'bootstrap-4-react'
+
 function Comment(props){
     return (
-        <div class="ui container comments">
-            <div class="comment">
+
+        <Card style={{ width: '18rem' }}>
+            <Card.Body>
+               
                 <a href='/' class="avatar">
                     <img src={props.image}  alt='avatar'/>
                 </a>
@@ -16,8 +20,10 @@ function Comment(props){
                         I'm very interested in this motherboard. Do you know if it'd work in a Intel LGA775 CPU socket?
                     </div>
                 </div>    
-            </div>
-        </div>
+              
+            </Card.Body>
+        </Card>
+
     )
 }
 
