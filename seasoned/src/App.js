@@ -1,18 +1,5 @@
 import React from 'react'
-
-// const App = () => {
-
-//     navigator.geolocation.getCurrentPosition(
-//         (success) => console.log(success),
-//         (error) => console.log(error)
-//     );
-
-//     return(
-//         <div>
-//             <h1>Hey There</h1>
-//         </div>
-//     )
-// }
+import SeasonDisplay from './SeasonDisplay'
 
 class App extends React.Component{
 
@@ -35,16 +22,24 @@ class App extends React.Component{
     }
 
     render(){
+       
         if(!this.state.errorMessage && this.state.latitude){
-            return <div>Latitude: {this.state.latitude}</div>
+            return <SeasonDisplay latitude={this.state.latitude}/>
         }
         else if(this.state.errorMessage && !this.state.latitude){
-            return <div>Error: {this.state.errorMessage}</div>
+            return <div>
+                        <h3>
+                            Error: {this.state.errorMessage}
+                        </h3>               
+                    </div>
         }
         else{
-            return <div>Loading......</div>
-        }
-
+            return <div>
+                        <h3>
+                            Loading......
+                        </h3>                   
+                    </div>
+        }        
     }
 }
 
