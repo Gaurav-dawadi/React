@@ -1,15 +1,16 @@
+import './imagebox.css'
 import React from 'react'
-
+import ImageCard from './imagecard'
 
 
 const ImageBox = (props) => {
 
-    const pics = props.image.map(({id, urls, description}) => {
-        return <img key={id} src={urls.regular} alt={description} />
+    const pics = props.image.map( pic => {
+        return <ImageCard key={pic.id} images={pic}/>
     })
     
     return(
-        <div>
+        <div className='image-list'>
             {pics}
         </div>
     )
