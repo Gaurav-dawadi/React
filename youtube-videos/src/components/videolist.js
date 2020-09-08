@@ -2,6 +2,7 @@ import React from 'react'
 import VideoItem from './videoitems'
 
 
+// Component that contains all 5 videos 
 const VideoList = ({videos, onVideoSelect}) => {
 
     const renderedList = videos.map((video) => {

@@ -1,6 +1,7 @@
 import './videoitem.css'
 import React from 'react'
 
+// Each videos on VideoList component
 const VideoItem = ({item, onVideoSelect}) => {
     return(
         <div onClick={() => onVideoSelect(item)} className='video-item item'>

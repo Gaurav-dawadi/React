@@ -9,10 +9,12 @@ class App extends React.Component{
 
     state = {videos: [], selectedVideo: null};
 
+    // To default video at start of an app
     componentDidMount(){
-        this.onTermSubmit('HIGHLIGHTS | SPURS 4-1 READING');
+        this.onTermSubmit('HIGHLIGHTS | SPURS 4-1 READING');     
     }
 
+    // To search term
     onTermSubmit = async (term) => {
         const response = await YouTube.get('/search', {
             params:{
@@ -26,6 +28,7 @@ class App extends React.Component{
         })       
     };
 
+    // To select certain video from list to play
     onVideoSelect = (video) => {
         this.setState({selectedVideo: video})     
     }
